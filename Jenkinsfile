@@ -4,7 +4,7 @@ node {
       echo 'init'
    }
    stage('build') {
-      bat '''
+      sh '''
          mvn clean package
          cd target
          cp ../src/main/resources/web.config web.config
