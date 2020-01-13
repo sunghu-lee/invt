@@ -40,7 +40,7 @@ public class EISController
 	@GetMapping()
 	public String mainPage()
 	{
-		return "main";
+		return "main-1";
 	}
 	
 	@GetMapping("/Calc")
