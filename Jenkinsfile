@@ -5,8 +5,13 @@ node {
    }
    stage('build') {
       bat 'mvn clean package'
-      bat 'cd target'
-      bat 'echo test'
+      echo 'copy'
+      bat label: '', script: '''
+        cd target
+        copy ..\\src\\main\\resources\\web.config web.config
+        copy invt-0.0.1-SNAPSHOT.jar app.jar
+        zip todo.zip app.jar web.config
+        '''
    }
    stage('deploy') {
       azureWebAppPublish azureCredentialsId: env.AZURE_CRED_ID,
