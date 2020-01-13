@@ -12,7 +12,6 @@ node {
         copy invt-0.0.1-SNAPSHOT.jar app.jar
         7z a todo.zip app.jar web.config
         '''
-      bat 'mvn azure-webapp:deploy'
    }
    stage('deploy') {
       azureWebAppPublish azureCredentialsId: env.AZURE_CRED_ID,
