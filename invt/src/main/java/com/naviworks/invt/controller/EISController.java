@@ -39,7 +39,7 @@ public class EISController
 	}
 	
 	@GetMapping("/Search")
-	@ApiOperation(value="Search", notes="Search at Employee DB in Naviworks Co.")
+	@ApiOperation(value="Search", notes="Search at Employee in Naviworks Co.")
 	@ApiImplicitParams({
 		@ApiImplicitParam(name="name", value="임직원 이름",dataType="string"),
 		@ApiImplicitParam(name="cid", value="임직원 사번", dataType="string")
