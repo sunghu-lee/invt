@@ -5,7 +5,7 @@ node {
    }
    stage('build') {
       bat '''
-         echo 'build start'
+         echo 'build start '
          mvn clean package
          cd target
          echo 'move dir target'
