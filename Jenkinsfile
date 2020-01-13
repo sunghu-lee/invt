@@ -6,9 +6,13 @@ node {
       bat '''
          mvn clean package
          cd target
+         echo 'move dir target'
          cp ../src/main/resources/web.config web.config
+         echo 'copy config'
          cp invt-0.0.1-SNAPSHOT.jar app.jar 
+         echo 'copy jar'
          zip todo.zip app.jar web.config
+         echo 'Process zip'
       '''
    }
    stage('deploy') {
