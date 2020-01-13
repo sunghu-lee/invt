@@ -1,9 +1,11 @@
 node {
    stage('init') {
       checkout scm
+      echo 'init'
    }
    stage('build') {
       bat '''
+         echo 'build start'
          mvn clean package
          cd target
          echo 'move dir target'
