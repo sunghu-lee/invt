@@ -5,11 +5,16 @@ import java.util.List;
 
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
@@ -36,6 +41,22 @@ public class EISController
 	public String mainPage()
 	{
 		return "main";
+	}
+	
+	@GetMapping("/Calc")
+	@ApiOperation(value="Calc", notes="number calc")
+	@ApiImplicitParams({
+		@ApiImplicitParam(name="num1", value="첫번째 숫자",dataType="int"),
+		@ApiImplicitParam(name="num2", value="두번째 숫자", dataType="int")
+	})
+	public ResponseEntity<ResponseMessage> Calc(
+			@RequestParam(value="num1", required=true , defaultValue="0")int num1,
+			@RequestParam(value="num2", required=true , defaultValue="0")int num2)
+	{
+		String strMsg = "Result : " + String.valueOf(num1+num2);
+		ResponseMessage message = new ResponseMessage("Success", strMsg, "200", "계산 결과");
+		// Send Client
+		return new ResponseEntity<ResponseMessage>(message, HttpStatus.OK);
 	}
 	
 	@GetMapping("/Search")
@@ -94,8 +115,9 @@ public class EISController
 		{
 			message = new ResponseMessage("Failed", "등록되지 않은 임직원입니다.", "505", "등록되지 않은 임직원입니다.");
 		}
-
+		
 		// Send Client
 		return new ResponseEntity<ResponseMessage>(message, HttpStatus.OK);
+		
 	}
 }
