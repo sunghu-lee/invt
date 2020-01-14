@@ -32,11 +32,12 @@ public class SwaggerConfig
 	private ApiInfo apiInfo()
 	{
 		return new ApiInfo(
-				"Hello, EAM",
-				"Employee Approval Make service",
+				"Hello, EIS",
+				"Some description of API.",
 				"API TOS",
 				"Terms Of Service",
 				new Contact("Naviworks Co.", "www.naviworks.com", "support@naviworks.com"),
 				"Licens of API", "API License URL", Collections.emptyList());
+				
 	}
 }
