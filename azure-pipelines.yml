@@ -3,7 +3,7 @@ trigger:
 
 variables:
   # Azure service connection established during pipeline creation
-  azureSubscription: 83b49447-1296-4e78-847c-baaebb505b88
+  azureSubscription: '9d53fc3b-ddea-450d-8554-c5874f251737'
   appName: invt-1578939256727
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
