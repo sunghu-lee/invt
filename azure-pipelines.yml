@@ -8,7 +8,7 @@ variables:
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
-- task: AzureWebApp@1 # Add this at the end of your file
+- task: AzureWebApp@1
   inputs:
     azureSubscription: <Azure service connection>
     appType: webAppLinux
