@@ -54,7 +54,7 @@ public class EISController
 			@RequestParam(value="num2", required=true , defaultValue="0")int num2)
 	{
 		String strMsg = "Result : " + String.valueOf(num1+num2);
-		ResponseMessage message = new ResponseMessage("Success", strMsg, "200", "계산 결과");
+		ResponseMessage message = new ResponseMessage("Success", strMsg, "200", "계산 결과는?");
 		// Send Client
 		return new ResponseEntity<ResponseMessage>(message, HttpStatus.OK);
 	}

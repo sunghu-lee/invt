@@ -14,7 +14,7 @@ import com.naviworks.invt.filter.CORSFilter;
 @SpringBootApplication
 @EnableAutoConfiguration(exclude={MongoAutoConfiguration.class})
 public class InvtApplication {
-	
+
 	@Configuration
 	public class WebConfig implements WebMvcConfigurer
 	{
@@ -27,7 +27,7 @@ public class InvtApplication {
 	        return registrationBean;
 	    }
 	}
-
+	
 	public static void main(String[] args) {
 		SpringApplication.run(InvtApplication.class, args);
 	}
