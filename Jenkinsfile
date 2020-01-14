@@ -1,19 +1,18 @@
 node {
    stage('init') {
       checkout scm
-      echo 'init'
    }
    stage('build') {
-      bat 'mvn clean package'
-      echo 'copy'
-      bat label: '', script: '''
-        cd target
-        copy ..\\src\\main\\resources\\web.config web.config
-        copy invt-0.0.1-SNAPSHOT.war app.war
-        '''
+      sh '''
+         mvn clean package
+         cd target
+         cp ../src/main/resources/web.config web.config
+         cp todo-app-java-on-azure-1.0-SNAPSHOT.jar app.jar 
+         zip todo.zip app.jar web.config
+      '''
    }
    stage('deploy') {
       azureWebAppPublish azureCredentialsId: env.AZURE_CRED_ID,
-      resourceGroup: env.RES_GROUP, appName: env.WEB_APP, filePath: "**/app.war"
+      resourceGroup: env.RES_GROUP, appName: env.WEB_APP, filePath: "**/todo.zip"
    }
 }

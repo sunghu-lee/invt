@@ -7,10 +7,11 @@ import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 
 @SpringBootApplication
 @EnableAutoConfiguration(exclude={MongoAutoConfiguration.class})
-public class InvtApplication {
+public class InvtApprovalApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(InvtApplication.class, args);
+		// TODO Auto-generated method stub
+		SpringApplication.run(InvtApprovalApplication.class, args);
 	}
 
 }
