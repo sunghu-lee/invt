@@ -4,13 +4,13 @@ trigger:
 variables:
   # Azure service connection established during pipeline creation
   azureSubscription: '9d53fc3b-ddea-450d-8554-c5874f251737'
-  appName: invt-1578939256727
+  appName: 'invt-1578939256727'
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
 - task: AzureWebApp@1
   inputs:
-    azureSubscription: <Azure service connection>
+    azureSubscription: $(azureSubscription)
     appType: webAppLinux
     appName: $(appName)
     package: $(System.ArtifactsDirectory)/**/*.zip
