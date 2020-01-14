@@ -1,5 +1,6 @@
 com\naviworks\invt\model\ResponseMessage.class
 com\naviworks\invt\config\DataSourceConfig.class
+com\naviworks\invt\InvtApplication$WebConfig.class
 META-INF\spring-configuration-metadata.json
 com\naviworks\invt\filter\CORSFilter.class
 com\naviworks\invt\config\SwaggerConfig.class
